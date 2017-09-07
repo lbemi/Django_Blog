@@ -3,6 +3,7 @@ from blog.models import Post
 from .models import Comment
 from .forms import CommentForm
 
+
 def post_comment(request, post_pk):
     post = get_object_or_404(Post, pk=post_pk)
     if request.method == 'POST':

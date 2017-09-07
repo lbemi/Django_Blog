@@ -18,7 +18,7 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
-
+@python_2_unicode_compatible
 class Post(models.Model):
     title = models.CharField(max_length=70)
     body = models.TextField()
@@ -34,3 +34,6 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:detail', kwargs={'pk': self.pk})
+
+    class Meta:
+        ordering = ['-created_time']
