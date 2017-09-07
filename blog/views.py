@@ -22,7 +22,7 @@ def detail(request, pk):
                'form': form,
                'comment_list': comment_list
                }
-    return render(request, 'blog/detail.html', context={'post': post})
+    return render(request, 'blog/detail.html', context=context)
 
 
 def archives(request, year, month):
