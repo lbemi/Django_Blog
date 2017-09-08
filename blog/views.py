@@ -22,6 +22,7 @@ def detail(request, pk):
                'form': form,
                'comment_list': comment_list
                }
+    post.increase_views()  #阅读量增加1
     return render(request, 'blog/detail.html', context=context)
 
 
@@ -36,4 +37,5 @@ def category(request, pk):
     cate = get_object_or_404(Category, pk=pk)
     post_list = Post.objects.filter(category=cate).order_by('-created_time')
     return render(request, 'blog/index.html', context={'post_list': post_list})
+
 
